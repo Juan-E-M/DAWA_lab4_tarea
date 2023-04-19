@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calculadora</title>  
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Calculadora</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>Calculadora</h1>
-	<form method="get" action="/calculadora">
-		<label for="numero1">Primer número:</label>
-		<input type="number" name="numero1" id="numero1" required>
-		<br>
-		<label for="numero2">Segundo número:</label>
-		<input type="number" name="numero2" id="numero2" required>
-		<br>
-		<label for="operacion">Operación:</label>
-		<select name="operacion" id="operacion" required>
-			<option value="">Seleccione una opción</option>
-			<option value="suma">Suma (+)</option>
-			<option value="resta">Resta (-)</option>
-			<option value="multiplicacion">Multiplicación (*)</option>
-			<option value="division">División (/)</option>
-		</select>
-		<br>
-		<button type="submit">Calcular</button>
-	</form>
-    <span>Resultado de la Operación: {resultado}</span>
+	<div class="container">
+		<h1 class="mt-5 mb-4 text-center">Calculadora</h1>
+		<form method="get" action="/calculadora" class="mb-4">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-floating">
+						<input type="number" class="form-control" name="numero1" id="numero1" placeholder=" " required>
+						<label for="numero1">Primer número:</label>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-floating">
+						<input type="number" class="form-control" name="numero2" id="numero2" placeholder=" " required>
+						<label for="numero2">Segundo número:</label>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-floating">
+						<select class="form-select" name="operacion" id="operacion" required>
+							<option value="">Seleccione una opción</option>
+							<option value="suma">Suma (+)</option>
+							<option value="resta">Resta (-)</option>
+							<option value="multiplicacion">Multiplicación (*)</option>
+							<option value="division">División (/)</option>
+							</select>
+						<label for="operacion">Operación:</label>
+					</div>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary mt-3">Calcular</button>
+		</form>
+		<div class="mt-3">
+			<span>Resultado de la Operación: {resultado}</span>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
 </body>
 </html>

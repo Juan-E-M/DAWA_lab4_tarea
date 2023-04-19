@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Procesador de texto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
   <body>
-    <h1>Procesador de texto</h1>
-    <form method="get" action="/procesadorDeTexto">
-      <label for="texto">Texto:</label>
+    <div class="container mt-5">
+      <h1>Procesador de texto</h1>
+      <form method="get" action="/procesadorDeTexto">
+        <div class="form-group">
+          <label for="texto">Texto:</label>
+          <textarea class="form-control" name="texto" id="texto" rows="5" cols="50"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="accion">Acción:</label>
+          <select class="form-control" name="accion" id="accion">
+            <option value="dividir">Dividir palabra</option>
+            <option value="extraer">Extraer cadena de texto (Ejemplo: de la segunda a la sexta)</option>
+            <option value="eliminarEspacios">Eliminar espacios en blanco</option>
+            <option value="capitalizar">Capitalizar</option>
+            <option value="minusculas">Minúsculas</option>
+            <option value="mayusculas">Mayúsculas</option>
+            <option value="contarCaracteres">Contar Caracteres</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Procesar</button>
+      </form>
       <br>
-      <textarea name="texto" id="texto" rows="5" cols="50"></textarea>
-      <br>
-      <br>
-      <label for="accion">Acción:</label>
-      <br>
-      <select name="accion" id="accion">
-        <option value="dividir">Dividir palabra</option>
-       <option value="extraer">Extraer cadena de texto (Ejemplo: de la segunda a la sexta)</option>
-        <option value="eliminarEspacios">Eliminar espacios en blanco</option>
-        <option value="capitalizar">Capitalizar</option>
-        <option value="minusculas">Minúsculas</option>
-        <option value="mayusculas">Mayúsculas</option>
-        <option value="contarCaracteres">Contar Caracteres</option>
-      </select>
-      <br>
-      <br>
-      <button type="submit">Procesar</button>
-    </form>
-    <span>Resultado procesado: {resultado}</span>
+      <span>Resultado procesado: {resultado}</span>
+    </div>
+    <!-- Agregar referencia a los archivos JavaScript de Bootstrap (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   </body>
 </html>
