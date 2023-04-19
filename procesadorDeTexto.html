@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Procesador de texto</title>
+  </head>
+  <body>
+    <h1>Procesador de texto</h1>
+    <form method="get" action="/procesadorDeTexto">
+      <label for="texto">Texto:</label>
+      <br>
+      <textarea name="texto" id="texto" rows="5" cols="50"></textarea>
+      <br>
+      <br>
+      <label for="accion">Acción:</label>
+      <br>
+      <select name="accion" id="accion">
+        <option value="dividir">Dividir palabra</option>
+        <option value="extraer">Extraer cadena de texto</option>
+        <option value="eliminarEspacios">Eliminar espacios en blanco</option>
+        <option value="capitalizar">Capitalizar</option>
+        <option value="minusculas">Minúsculas</option>
+        <option value="mayusculas">Mayúsculas</option>
+        <option value="contarCaracteres">Contar Caracteres</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit">Procesar</button>
+    </form>
+    <span>Resultado procesado: {resultado}</span>
+  </body>
+</html>

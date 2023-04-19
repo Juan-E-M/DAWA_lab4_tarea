@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+	<h1>Calculadora</h1>
+	<form method="get" action="/calculadora">
+		<label for="numero1">Primer número:</label>
+		<input type="number" name="numero1" id="numero1" required>
+		<br>
+		<label for="numero2">Segundo número:</label>
+		<input type="number" name="numero2" id="numero2" required>
+		<br>
+		<label for="operacion">Operación:</label>
+		<select name="operacion" id="operacion" required>
+			<option value="">Seleccione una opción</option>
+			<option value="suma">Suma (+)</option>
+			<option value="resta">Resta (-)</option>
+			<option value="multiplicacion">Multiplicación (*)</option>
+			<option value="division">División (/)</option>
+		</select>
+		<br>
+		<button type="submit">Calcular</button>
+	</form>
+    <span>Resultado de la Operación: {resultado}</span>
+</body>
+</html>
