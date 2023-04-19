@@ -60,7 +60,7 @@ http.createServer(function(req, res) {
             if (accion === 'dividir') {
             resultado = procesadorDeTexto.dividirPalabras(texto);
             } else if (accion === 'extraer') {
-            resultado = procesadorDeTexto.extraerCadenaDeTexto(texto);
+            resultado = procesadorDeTexto.extraerTexto(texto, 2, 6);
             } else if (accion === 'eliminarEspacios') {
             resultado = procesadorDeTexto.eliminarEspacios(texto);
             } else if (accion === 'capitalizar') {

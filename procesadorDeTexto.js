@@ -6,9 +6,7 @@ module.exports = {
     },
   
     extraerTexto: function(texto, inicio, fin) {
-      var indiceInicio = texto.indexOf(inicio) + inicio.length;
-      var indiceFin = texto.indexOf(fin, indiceInicio);
-      return texto.substring(indiceInicio, indiceFin);
+      return texto.substring(inicio, fin);
     },
   
     eliminarEspacios: function(texto) {
