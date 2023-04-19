@@ -73,11 +73,9 @@ http.createServer(function(req, res) {
                 }
                 if (parametros[i] == 'texto'){
                     var texto = valores[i]
+                    texto = texto.replace(/\+/g, ' ');
                 }
             }
-            console.log(texto)
-            texto = texto.replace('+',' ')
-            console.log(texto)
             if (accion === 'dividir') {
             resultado = procesadorDeTexto.dividirPalabras(texto);
             } else if (accion === 'extraer') {
@@ -95,7 +93,6 @@ http.createServer(function(req, res) {
             }
             html_string = html_string.replace('{resultado}',resultado)
         }
-
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(html_string);
         res.end();

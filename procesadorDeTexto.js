@@ -2,7 +2,7 @@
 
 module.exports = {
     dividirPalabras: function(texto) {
-      return texto.split(' ');
+      return texto.split('');
     },
   
     extraerTexto: function(texto, inicio, fin) {
@@ -12,7 +12,7 @@ module.exports = {
     },
   
     eliminarEspacios: function(texto) {
-      return texto.trim();
+      return texto.replace(/\s/g, '');
     },
   
     capitalizar: function(texto) {
