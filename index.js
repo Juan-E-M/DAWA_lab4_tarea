@@ -12,9 +12,8 @@ http.createServer(function(req, res) {
   const pathname = parsedUrl.pathname;
 
   if (pathname === '/calculadora') {
-    // Si la URL es "/calculadora", procesamos la solicitud de la calculadora
     if (req.method === 'GET') {
-      // Si la solicitud es por GET, mostramos el formulario
+
       fs.readFile('./calculadora.html', function(err, html) {
         if (err) {
           res.writeHead(500);
@@ -30,29 +29,11 @@ http.createServer(function(req, res) {
         res.write(html_string);
         res.end();
       });
-    } else if (req.method === 'POST') {
-      // Si la solicitud es por POST, procesamos los datos del formulario
-      let body = '';
-      req.on('data', function(data) {
-        body += data;
-      });
-
-      req.on('end', function() {
-        const postData = querystring.parse(body);
-        const operacion = postData.operacion;
-        const numero1 = parseFloat(postData.numero1);
-        const numero2 = parseFloat(postData.numero2);
-        const resultado = calculadora.calcularPost(operacion, numero1, numero2);
-
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(`<p>Resultado: ${resultado}</p>`);
-        res.end();
-      });
     }
   } else if (pathname === '/procesadorDeTexto') {
-    // Si la URL es "/procesadorDeTexto", procesamos la solicitud del procesador de texto
+
     if (req.method === 'GET') {
-      // Si la solicitud es por GET, mostramos el formulario
+
       fs.readFile('./procesadorDeTexto.html', function(err, html) {
         if (err) {
           res.writeHead(500);
@@ -97,42 +78,8 @@ http.createServer(function(req, res) {
         res.write(html_string);
         res.end();
       });
-    } else if (req.method === 'POST') {
-      // Si la solicitud es por POST, procesamos los datos del formulario
-      let body = '';
-      req.on('data', function(data) {
-        body += data;
-      });
+    }} else {
 
-      req.on('end', function() {
-        const postData = querystring.parse(body);
-        const texto = postData.texto;
-        const accion = postData.accion;
-        let resultado = '';
-
-        if (accion === 'dividir') {
-          resultado = procesadorDeTexto.dividirPalabra(texto);
-        } else if (accion === 'extraer') {
-          resultado = procesadorDeTexto.extraerCadenaDeTexto(texto);
-        } else if (accion === 'eliminarEspacios') {
-          resultado = procesadorDeTexto.eliminarEspacios(texto);
-        } else if (accion === 'capitalizar') {
-          resultado = procesadorDeTexto.capitalizar(texto);
-        } else if (accion === 'minusculas') {
-          resultado = procesadorDeTexto.minusculas(texto);
-        } else if (accion === 'mayusculas') {
-          resultado = procesadorDeTexto.mayusculas(texto);
-        } else if (accion === 'contarPalabras') {
-        resultado = procesadorDeTexto.contarPalabras(texto);
-        } else if (accion === 'invertir') {
-        resultado = procesadorDeTexto.invertirTexto(texto);
-        }
-        res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(`<p>Resultado: ${resultado}</p>`);
-    res.end();
-  });
-}} else {
-    // Si la URL no es "/calculadora" ni "/procesadorDeTexto", mostramos un mensaje de error
     res.writeHead(404);
     res.end('Error: página no encontrada');
     }
